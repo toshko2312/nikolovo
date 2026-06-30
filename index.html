@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Николово · Област Хасково</title>
+<meta name="description" content="Село Николово в област Хасково, България — край язовир Тракиец, на 24 км от Хасково. История, забележителности и как да стигнете.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,500&family=Schibsted+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:background-color .3s ease,color .3s ease;
+    --accent:oklch(0.5 0.07 155);--accent-soft:oklch(0.96 0.02 155);--imgr:8px;
+    --bg:#f5f7f3;--header-bg:rgba(245,247,243,.9);--ink:#1f2a22;--ink-soft:#3c4a40;--muted:#46554b;--faint:#7d8a80;
+    --card:#ffffff;--card-border:rgba(31,42,34,.08);--hairline:rgba(31,42,34,.08);--hairline-2:rgba(31,42,34,.12);
+    --ph1:#dbe4d8;--ph2:#e7eee4;--chip-bg:rgba(255,255,255,.85);--chip-ink:#4f6155;
+    --footer-bg:#1f2a22;--footer-ink:#cdd6cf;--footer-muted:#9faea3;--footer-faint:#7d8d80;--footer-line:rgba(255,255,255,.1);
+    background:var(--bg);color:var(--ink);min-height:100vh}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  body.dark{
+    --bg:#10130e;--header-bg:rgba(16,19,14,.85);--ink:#eef2ea;--ink-soft:#c8d1c2;--muted:#a7b2a3;--faint:#74806f;
+    --card:#191e16;--card-border:rgba(255,255,255,.1);--hairline:rgba(255,255,255,.08);--hairline-2:rgba(255,255,255,.13);
+    --ph1:#1f261b;--ph2:#2a3225;--chip-bg:rgba(16,19,14,.8);--chip-ink:#a7b2a3;
+    --footer-bg:#0b0e09;--footer-ink:#c8d1c2;--footer-muted:#8f9b8a;--footer-faint:#6e7a6a;--footer-line:rgba(255,255,255,.08);
+    --accent:oklch(0.6 0.085 155);--accent-soft:oklch(0.30 0.045 155)}
+  .ph{background:repeating-linear-gradient(135deg,var(--ph1) 0 16px,var(--ph2) 16px 32px)}
+  .chip{font:500 11px ui-monospace,monospace;color:var(--chip-ink);background:var(--chip-bg);padding:6px 11px;border-radius:7px}
+  .page{display:none;animation:fadeUp .45s ease both}
+  .page.active{display:block}
+  @media(max-width:780px){
+    .grid2,.gridHist,.gridLoc{grid-template-columns:1fr !important}
+    .gridPlaces{grid-template-columns:1fr 1fr !important}
+    .footer-grid{grid-template-columns:1fr !important}
+    .order-img{order:0 !important}
+    h1.big{font-size:46px !important}
+  }
+  @media(max-width:520px){
+    .gridPlaces{grid-template-columns:1fr !important}
+    .gallery{column-count:1 !important}
+    nav.mainnav{gap:14px !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header style="position:sticky;top:0;z-index:50;background:var(--header-bg);backdrop-filter:blur(12px);border-bottom:1px solid var(--hairline)">
+  <div style="max-width:1140px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <div data-nav="home" style="display:flex;align-items:center;gap:10px;cursor:pointer">
+      <div style="width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:15px">Н</div>
+      <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:18px;letter-spacing:.01em">Николово</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:22px">
+      <nav class="mainnav" style="display:flex;gap:28px;flex-wrap:wrap" id="nav"></nav>
+      <button id="themeBtn" title="Смени светла / тъмна тема" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--card-border);background:var(--card);color:var(--ink);cursor:pointer;font-size:16px;line-height:1;flex:none;padding:0">☾</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME ============ -->
+  <div class="page" data-page="home">
+    <!-- hero: title over image -->
+    <div style="max-width:1140px;margin:0 auto;padding:24px 32px 0">
+      <div class="ph" style="position:relative;height:520px;border-radius:var(--imgr);overflow:hidden;display:flex;align-items:flex-end">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(15,20,13,.66),rgba(15,20,13,0) 60%)"></div>
+        <div style="position:absolute;top:16px;right:16px" class="chip">снимка · хълмовете и язовир Тракиец</div>
+        <div style="position:relative;padding:44px">
+          <div style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#d6e6d4;margin-bottom:12px">Област Хасково · България</div>
+          <h1 class="big" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:72px;line-height:.98;margin:0;letter-spacing:-.025em;color:#fdfefc">Николово</h1>
+          <p style="font-size:19px;line-height:1.6;color:#eaf0e8;max-width:540px;margin:18px 0 0">Село с дълга памет край язовир Тракиец, на 24 км от Хасково.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 1: история (img left) -->
+    <section style="margin-top:24px;border-top:1px solid var(--hairline)">
+      <div class="grid2" style="max-width:1140px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+        <div class="ph" style="height:360px;border-radius:var(--imgr);position:relative;overflow:hidden">
+          <div style="position:absolute;left:14px;top:14px" class="chip">снимка · старите къщи</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">История</div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1.08;margin:0 0 16px">От Ески кьой до Николово</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--muted);margin:0 0 22px">До 1906 г. селото носи името Ески кьой, по-късно Старо село, а през 1950 г. е преименувано на Николово. В него живеят само православни християни.</p>
+          <span data-nav="history" style="cursor:pointer;font-size:14px;font-weight:600;color:var(--accent)">Прочети историята →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 2: язовир (img right) -->
+    <section style="border-top:1px solid var(--hairline)">
+      <div class="grid2" style="max-width:1140px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+        <div class="ph order-img" style="order:2;height:360px;border-radius:var(--imgr);position:relative;overflow:hidden">
+          <div style="position:absolute;right:14px;top:14px" class="chip">снимка · язовир Тракиец</div>
+        </div>
+        <div style="order:1">
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Природа</div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1.08;margin:0 0 16px">Водите на Тракиец</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--muted);margin:0">В землището на селото е разположен язовир Тракиец, който дълги години снабдява град Хасково с питейна вода.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 3: легендата (img left) -->
+    <section style="border-top:1px solid var(--hairline)">
+      <div class="grid2" style="max-width:1140px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+        <div class="ph" style="height:360px;border-radius:var(--imgr);position:relative;overflow:hidden">
+          <div style="position:absolute;left:14px;top:14px" class="chip">снимка · храмът</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Предание</div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1.08;margin:0 0 16px">Легендата за „Света Богородица"</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--muted);margin:0">Според местно предание най-голямата църква в Хасково — „Света Богородица" — е построена по проекта на църквата в Николово.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 4: музеят (img right) -->
+    <section style="border-top:1px solid var(--hairline)">
+      <div class="grid2" style="max-width:1140px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+        <div class="ph order-img" style="order:2;height:360px;border-radius:var(--imgr);position:relative;overflow:hidden">
+          <div style="position:absolute;right:14px;top:14px" class="chip">снимка · музеят</div>
+        </div>
+        <div style="order:1">
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Памет</div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1.08;margin:0 0 16px">Музеят на селото</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--muted);margin:0 0 22px">В Николово има музей, който пази живия спомен за миналите времена и разказва историята на хората от селото.</p>
+          <span data-nav="places" style="cursor:pointer;font-size:14px;font-weight:600;color:var(--accent)">Виж забележителностите →</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 5: съборът (img left) -->
+    <section style="border-top:1px solid var(--hairline)">
+      <div class="grid2" style="max-width:1140px;margin:0 auto;padding:64px 32px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+        <div class="ph" style="height:360px;border-radius:var(--imgr);position:relative;overflow:hidden">
+          <div style="position:absolute;left:14px;top:14px" class="chip">снимка · съборът</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:12px">Традиция</div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:32px;line-height:1.08;margin:0 0 16px">Съборът в края на август</h2>
+          <p style="font-size:16px;line-height:1.7;color:var(--muted);margin:0">Всяка година в последната събота на август (около 28 август) селото се събира на традиционния събор.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA band -->
+    <section style="background:var(--accent)">
+      <div style="max-width:1140px;margin:0 auto;padding:56px 32px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+        <div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:30px;line-height:1.1;margin:0 0 8px;color:#fff">Елате до Николово</h2>
+          <p style="font-size:16px;color:rgba(255,255,255,.85);margin:0">На 24 км от Хасково — вижте как да стигнете.</p>
+        </div>
+        <span data-nav="location" style="cursor:pointer;background:#fff;color:var(--accent);font-weight:700;font-size:15px;padding:14px 26px;border-radius:999px;white-space:nowrap">Как да стигнете →</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ИСТОРИЯ ============ -->
+  <div class="page" data-page="history">
+    <div style="max-width:1140px;margin:0 auto;padding:64px 32px 80px">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">История</div>
+      <h1 class="big" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-.02em;max-width:760px">Памет, имена и хора</h1>
+      <p style="font-family:'Newsreader',serif;font-style:italic;font-size:21px;line-height:1.55;color:var(--muted);max-width:680px;margin:0 0 48px">Николово има интересна и интригуваща история, която вълнува неговите жители.</p>
+
+      <div class="gridHist" style="display:grid;grid-template-columns:1.4fr .9fr;gap:52px;align-items:start">
+        <div>
+          <h2 style="font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:26px;margin:0 0 14px">Имената на селото</h2>
+          <p style="font-size:16px;line-height:1.75;color:var(--ink-soft);margin:0 0 18px">До 1906 г. селото носи името <strong>Ески кьой</strong>. След това е преименувано на <strong>Старо село</strong>, а през 1950 г. получава днешното си име — <strong>Николово</strong>.</p>
+          <p style="font-size:16px;line-height:1.75;color:var(--ink-soft);margin:0 0 18px">Името е дадено в чест на Никола Арнаудов. Според разказите той се укривал около година в плевня край селото; обкръжен от полицията, сам сложил край на живота си.</p>
+          <p style="font-size:16px;line-height:1.75;color:var(--ink-soft);margin:0 0 30px">В селото живеят само православни християни, които пазят традициите и паметта на мястото.</p>
+
+          <div style="background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:24px 26px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Предание</div>
+            <p style="font-family:'Newsreader',serif;font-size:19px;line-height:1.55;color:var(--ink);margin:0">„Най-голямата църква в Хасково — „Света Богородица" — е построена по проекта на църквата в Николово."</p>
+          </div>
+        </div>
+
+        <aside>
+          <div class="ph" style="height:260px;border-radius:var(--imgr);position:relative;overflow:hidden;margin-bottom:28px">
+            <div style="position:absolute;left:14px;bottom:14px" class="chip">снимка · музеят / архив</div>
+          </div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:16px">Хронология</div>
+          <div style="display:flex;flex-direction:column;gap:0">
+            <div style="display:flex;gap:16px;padding:0 0 18px;border-left:2px solid var(--hairline-2);padding-left:18px;margin-left:4px">
+              <div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:18px;color:var(--ink)">до 1906</div><div style="font-size:14px;color:var(--muted)">Ески кьой</div></div>
+            </div>
+            <div style="display:flex;gap:16px;padding:0 0 18px;border-left:2px solid var(--hairline-2);padding-left:18px;margin-left:4px">
+              <div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:18px;color:var(--ink)">1906 – 1950</div><div style="font-size:14px;color:var(--muted)">Старо село</div></div>
+            </div>
+            <div style="display:flex;gap:16px;border-left:2px solid var(--accent);padding-left:18px;margin-left:4px">
+              <div><div style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:18px;color:var(--accent)">от 1950</div><div style="font-size:14px;color:var(--muted)">Николово</div></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ЗАБЕЛЕЖИТЕЛНОСТИ ============ -->
+  <div class="page" data-page="places">
+    <div style="max-width:1140px;margin:0 auto;padding:64px 32px 80px">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Забележителности</div>
+      <h1 class="big" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-.02em">Места в селото</h1>
+      <p style="font-size:18px;line-height:1.6;color:var(--muted);max-width:620px;margin:0 0 48px">Кътчетата, които си струва да видите в Николово. <span style="font-family:ui-monospace,monospace;font-size:13px;color:var(--faint)">(заместители — добави реални места и снимки)</span></p>
+
+      <div class="gridPlaces" style="display:grid;grid-template-columns:repeat(3,1fr);gap:28px" id="placesGrid"></div>
+    </div>
+  </div>
+
+  <!-- ============ КАК ДА СТИГНЕТЕ ============ -->
+  <div class="page" data-page="location">
+    <div style="max-width:1140px;margin:0 auto;padding:64px 32px 80px">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Местоположение</div>
+      <h1 class="big" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-.02em">Как да стигнете</h1>
+      <p style="font-size:18px;line-height:1.6;color:var(--muted);max-width:620px;margin:0 0 48px">Николово се намира в област Хасково, на около 24 км от град Хасково.</p>
+
+      <div class="gridLoc" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:24px">
+          <div style="background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:24px 26px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">С автомобил</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--muted);margin:0">От Хасково се пътува около 24 км, приблизително 30 минути по пътя в посока селото.</p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:24px 26px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">С автобус</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--muted);margin:0">От автогара Хасково има междуградски линии до околните села. <span style="font-family:ui-monospace,monospace;font-size:12.5px;color:var(--faint)">(уточни разписание)</span></p>
+          </div>
+          <div style="background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:24px 26px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Координати</div>
+            <p style="font-size:15px;line-height:1.65;color:var(--muted);margin:0">Област Хасково, България · <span style="font-family:ui-monospace,monospace;font-size:13px">41.82644947933966° N, 25.409095246009304° E</span></p>
+          </div>
+          <a href="https://maps.app.goo.gl/VVNS8qXDDmce1BBg8" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;font-weight:700;font-size:15px;padding:16px 22px;border-radius:14px;text-decoration:none">
+            <span style="font-size:18px;line-height:1">➜</span> Навигирай с Google Карти
+          </a>
+        </div>
+
+        <div>
+          <div style="border-radius:var(--imgr);overflow:hidden;border:1px solid var(--hairline-2);box-shadow:0 10px 30px rgba(15,20,13,.14)">
+            <iframe title="Карта на Николово" src="https://www.openstreetmap.org/export/embed.html?bbox=25.3691%2C41.8014%2C25.4491%2C41.8514&layer=mapnik&marker=41.82644947933966%2C25.409095246009304" style="width:100%;height:460px;border:0;display:block" loading="lazy"></iframe>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:14px;flex-wrap:wrap">
+            <span style="font-family:ui-monospace,monospace;font-size:12.5px;color:var(--faint)">Николово, област Хасково.</span>
+            <a href="https://www.openstreetmap.org/?mlat=41.82644947933966&mlon=25.409095246009304#map=14/41.8264/25.4091" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;color:var(--accent);text-decoration:none">Отвори по-голяма карта →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ГАЛЕРИЯ ============ -->
+  <div class="page" data-page="gallery">
+    <div style="max-width:1140px;margin:0 auto;padding:64px 32px 80px">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px">Галерия</div>
+      <h1 class="big" style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:54px;line-height:1.02;margin:0 0 18px;letter-spacing:-.02em">Селото в кадри</h1>
+      <p style="font-size:18px;line-height:1.6;color:var(--muted);max-width:620px;margin:0 0 48px">Замести плейсхолдерите със снимки на Николово.</p>
+
+      <div class="gallery" style="column-count:3;column-gap:20px" id="galleryGrid"></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:var(--footer-bg);color:var(--footer-ink)">
+  <div class="footer-grid" style="max-width:1140px;margin:0 auto;padding:56px 32px 28px;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+        <div style="width:30px;height:30px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:15px">Н</div>
+        <span style="font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:18px;color:#fff">Николово</span>
+      </div>
+      <p style="font-size:14.5px;line-height:1.65;color:var(--footer-muted);max-width:340px;margin:0">Село в област Хасково, България — край язовир Тракиец, на 24 км от Хасково.</p>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--footer-faint);margin-bottom:14px">Разгледай</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px">
+        <span data-nav="home" style="cursor:pointer;color:var(--footer-ink)">Начало</span>
+        <span data-nav="history" style="cursor:pointer;color:var(--footer-ink)">История</span>
+        <span data-nav="places" style="cursor:pointer;color:var(--footer-ink)">Забележителности</span>
+        <span data-nav="location" style="cursor:pointer;color:var(--footer-ink)">Как да стигнете</span>
+        <span data-nav="gallery" style="cursor:pointer;color:var(--footer-ink)">Галерия</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--footer-faint);margin-bottom:14px">Контакт</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:14.5px;color:var(--footer-muted)">
+        <span>Кметство Николово</span>
+        <span style="font-family:ui-monospace,monospace;font-size:13px">тел. — уточни</span>
+        <span style="font-family:ui-monospace,monospace;font-size:13px">имейл — уточни</span>
+      </div>
+    </div>
+  </div>
+  <div style="border-top:1px solid var(--footer-line)">
+    <div style="max-width:1140px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--footer-faint)">
+      <span>© 2026 Николово · Област Хасково</span>
+      <span>Снимките са заместители</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NAV = [
+    ['home','Начало'],
+    ['history','История'],
+    ['places','Забележителности'],
+    ['location','Как да стигнете'],
+    ['gallery','Галерия'],
+  ];
+  var PLACES = [
+    ['снимка · храм','Православният храм','Църквата на селото — сърцето на местния духовен живот.'],
+    ['снимка · музей','Музеят на селото','Пази живия спомен за миналите времена и бита на хората.'],
+    ['снимка · язовир','Язовир Тракиец','Водоемът край селото, дълго снабдявал Хасково с вода.'],
+    ['снимка · площад','Селският площад','Центърът на живота в Николово и място за срещи.'],
+    ['снимка · къщи','Старите къщи','Традиционна архитектура, която пази духа на селото.'],
+    ['снимка · околности','Околностите','Зелени хълмове и пътеки за разходка край селото.'],
+  ];
+  var GALLERY = [
+    ['снимка · панорама',300],['снимка · храм',220],['снимка · язовир',260],
+    ['снимка · къщи',240],['снимка · музей',320],['снимка · събор',210],
+    ['снимка · околности',280],['снимка · площад',230],['снимка · природа',300],
+  ];
+
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+
+  // build nav
+  var navEl = document.getElementById('nav');
+  var navSpans = {};
+  NAV.forEach(function(it){
+    var s = document.createElement('span');
+    s.textContent = it[1];
+    s.style.cssText = 'cursor:pointer;font-size:14px;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;color:var(--muted);white-space:nowrap';
+    s.setAttribute('data-nav', it[0]);
+    navEl.appendChild(s);
+    navSpans[it[0]] = s;
+  });
+
+  // build places
+  var pg = document.getElementById('placesGrid');
+  PLACES.forEach(function(p){
+    var card = document.createElement('div');
+    card.style.cssText = 'background:var(--card);border:1px solid var(--card-border);border-radius:14px;overflow:hidden';
+    card.innerHTML =
+      '<div class="ph" style="height:180px;position:relative"><div class="chip" style="position:absolute;left:12px;bottom:12px;font-size:10px;padding:4px 9px">'+esc(p[0])+'</div></div>'+
+      '<div style="padding:20px 22px"><h3 style="font-family:\'Schibsted Grotesk\',sans-serif;font-weight:700;font-size:19px;margin:0 0 8px">'+esc(p[1])+'</h3>'+
+      '<p style="font-size:14.5px;line-height:1.6;color:var(--muted);margin:0">'+esc(p[2])+'</p></div>';
+    pg.appendChild(card);
+  });
+
+  // build gallery
+  var gg = document.getElementById('galleryGrid');
+  GALLERY.forEach(function(g){
+    var d = document.createElement('div');
+    d.className = 'ph';
+    d.style.cssText = 'break-inside:avoid;margin-bottom:20px;height:'+g[1]+'px;border-radius:var(--imgr);position:relative;overflow:hidden';
+    d.innerHTML = '<div class="chip" style="position:absolute;left:12px;bottom:12px;font-size:10px;padding:4px 9px">'+esc(g[0])+'</div>';
+    gg.appendChild(d);
+  });
+
+  // routing
+  var pages = {};
+  document.querySelectorAll('.page').forEach(function(p){ pages[p.getAttribute('data-page')] = p; });
+
+  function navigate(page){
+    if(!pages[page]) page = 'home';
+    Object.keys(pages).forEach(function(k){ pages[k].classList.toggle('active', k===page); });
+    NAV.forEach(function(it){
+      var s = navSpans[it[0]];
+      if(it[0]===page){ s.style.color='var(--accent)'; s.style.borderBottom='2px solid var(--accent)'; }
+      else { s.style.color='var(--muted)'; s.style.borderBottom='2px solid transparent'; }
+    });
+    if(location.hash !== '#'+page) location.hash = page;
+    try{ window.scrollTo({top:0,behavior:'smooth'}); }catch(e){}
+  }
+
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('[data-nav]');
+    if(t){ e.preventDefault(); navigate(t.getAttribute('data-nav')); }
+  });
+  window.addEventListener('hashchange', function(){ navigate(location.hash.slice(1)); });
+
+  // theme
+  var btn = document.getElementById('themeBtn');
+  function applyTheme(dark){
+    document.body.classList.toggle('dark', dark);
+    btn.textContent = dark ? '☀' : '☾';
+  }
+  var saved = false;
+  try{ saved = localStorage.getItem('nikolovo-theme')==='dark'; }catch(e){}
+  applyTheme(saved);
+  btn.addEventListener('click', function(){
+    var dark = !document.body.classList.contains('dark');
+    applyTheme(dark);
+    try{ localStorage.setItem('nikolovo-theme', dark?'dark':'light'); }catch(e){}
+  });
+
+  // initial route
+  navigate((location.hash||'#home').slice(1));
+})();
+</script>
+
+</body>
+</html>
