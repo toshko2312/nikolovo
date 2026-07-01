@@ -10,10 +10,14 @@
 <meta name="theme-color" content="#f5f7f3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#10130e" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://www.nikolovo.com/galeriya.html">
+<link rel="alternate" hreflang="bg" href="https://www.nikolovo.com/galeriya.html">
+<link rel="alternate" hreflang="en" href="https://www.nikolovo.com/en/gallery.html">
+<link rel="alternate" hreflang="x-default" href="https://www.nikolovo.com/galeriya.html">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Николово">
 <meta property="og:locale" content="bg_BG">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Галерия — село Николово в кадри">
 <meta property="og:description" content="Селото в кадри — панорами, храм, язовир, къщи и природа.">
 <meta property="og:url" content="https://www.nikolovo.com/galeriya.html">
@@ -59,6 +63,13 @@
         <a class="nav-link" href="kak-da-stignete.html">Как да стигнете</a>
         <a class="nav-link" href="galeriya.html" aria-current="page">Галерия</a>
       </nav>
+      <details class="lang-switch">
+        <summary class="lang-btn" aria-label="Език / Language" title="Език / Language">BG <span class="caret">▾</span></summary>
+        <div class="lang-menu">
+          <a href="galeriya.html" aria-current="true" hreflang="bg" lang="bg">Български</a>
+          <a href="en/gallery.html" hreflang="en" lang="en">English</a>
+        </div>
+      </details>
       <button id="themeBtn" class="icon-btn" type="button" title="Смени светла / тъмна тема" aria-label="Смени тема">☾</button>
       <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Отвори меню" aria-expanded="false" aria-controls="mobileNav">☰</button>
     </div>
@@ -83,7 +94,7 @@
     <div class="gallery">
       <div class="gallery-item ph" style="height:300px"><div class="chip">снимка · панорама</div></div>
       <div class="gallery-item ph" style="height:220px"><div class="chip">снимка · храм</div></div>
-      <div class="gallery-item ph" style="height:260px"><div class="chip">снимка · язовир</div></div>
+      <div class="gallery-item"><picture><source srcset="images/yazovir-trakiec.webp" type="image/webp"><img src="images/yazovir-trakiec.jpg" width="675" height="348" loading="lazy" decoding="async" alt="Язовир Тракиец край село Николово, област Хасково"></picture></div>
       <div class="gallery-item ph" style="height:240px"><div class="chip">снимка · къщи</div></div>
       <div class="gallery-item ph" style="height:320px"><div class="chip">снимка · музей</div></div>
       <div class="gallery-item ph" style="height:210px"><div class="chip">снимка · събор</div></div>

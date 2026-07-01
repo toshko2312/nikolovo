@@ -19,6 +19,17 @@
     });
   }
 
+  // ---- Language dropdown: close on outside click / Escape ----
+  var lang = document.querySelector('.lang-switch');
+  if (lang) {
+    document.addEventListener('click', function (e) {
+      if (lang.open && !lang.contains(e.target)) lang.open = false;
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') lang.open = false;
+    });
+  }
+
   // ---- Mobile nav (hamburger) ----
   var toggle = document.getElementById('navToggle');
   var menu = document.getElementById('mobileNav');

@@ -10,22 +10,31 @@
 <meta name="theme-color" content="#f5f7f3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#10130e" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://www.nikolovo.com/">
+<link rel="alternate" hreflang="bg" href="https://www.nikolovo.com/">
+<link rel="alternate" hreflang="en" href="https://www.nikolovo.com/en/">
+<link rel="alternate" hreflang="x-default" href="https://www.nikolovo.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Николово">
 <meta property="og:locale" content="bg_BG">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:title" content="Николово — село в област Хасково край язовир Тракиец">
 <meta property="og:description" content="Село с дълга памет край язовир Тракиец, на 24 км от Хасково. История, забележителности и как да стигнете.">
 <meta property="og:url" content="https://www.nikolovo.com/">
-<meta property="og:image" content="https://www.nikolovo.com/favicon.svg">
+<meta property="og:image" content="https://www.nikolovo.com/images/nikolovo-yazovir-trakiec.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1200">
+<meta property="og:image:alt" content="Залез над язовир Тракиец край село Николово, област Хасково">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Николово — село в област Хасково">
 <meta name="twitter:description" content="Село край язовир Тракиец, на 24 км от Хасково. История, забележителности и как да стигнете.">
-<meta name="twitter:image" content="https://www.nikolovo.com/favicon.svg">
+<meta name="twitter:image" content="https://www.nikolovo.com/images/nikolovo-yazovir-trakiec.jpg">
+<meta name="twitter:image:alt" content="Залез над язовир Тракиец край село Николово, област Хасково">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
+<link rel="preload" as="image" href="images/nikolovo-yazovir-trakiec.webp" type="image/webp" fetchpriority="high">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +60,7 @@
       "name": "Николово",
       "description": "Село в област Хасково, България, край язовир Тракиец, на 24 км от Хасково.",
       "url": "https://www.nikolovo.com/",
-      "image": "https://www.nikolovo.com/favicon.svg",
+      "image": "https://www.nikolovo.com/images/nikolovo-yazovir-trakiec.jpg",
       "geo": {
         "@type": "GeoCoordinates",
         "latitude": 41.82644947933966,
@@ -84,6 +93,13 @@
         <a class="nav-link" href="kak-da-stignete.html">Как да стигнете</a>
         <a class="nav-link" href="galeriya.html">Галерия</a>
       </nav>
+      <details class="lang-switch">
+        <summary class="lang-btn" aria-label="Език / Language" title="Език / Language">BG <span class="caret">▾</span></summary>
+        <div class="lang-menu">
+          <a href="index.html" aria-current="true" hreflang="bg" lang="bg">Български</a>
+          <a href="en/index.html" hreflang="en" lang="en">English</a>
+        </div>
+      </details>
       <button id="themeBtn" class="icon-btn" type="button" title="Смени светла / тъмна тема" aria-label="Смени тема">☾</button>
       <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="Отвори меню" aria-expanded="false" aria-controls="mobileNav">☰</button>
     </div>
@@ -101,9 +117,12 @@
 
   <!-- Hero -->
   <div class="container hero">
-    <div class="hero-media ph">
+    <div class="hero-media">
+      <picture>
+        <source srcset="images/nikolovo-yazovir-trakiec.webp" type="image/webp">
+        <img class="hero-img" src="images/nikolovo-yazovir-trakiec.jpg" width="1600" height="1200" alt="Залез над язовир Тракиец край село Николово, област Хасково" fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero-overlay"></div>
-      <div class="hero-chip chip">снимка · хълмовете и язовир Тракиец</div>
       <div class="hero-content">
         <p class="eyebrow hero-eyebrow">Област Хасково · България</p>
         <h1 class="hero-title">Николово</h1>
@@ -130,8 +149,11 @@
   <!-- Природа -->
   <section class="section">
     <div class="section-inner split">
-      <div class="media ph order-img">
-        <div class="chip" style="right:14px;top:14px">снимка · язовир Тракиец</div>
+      <div class="media order-img">
+        <picture>
+          <source srcset="images/yazovir-trakiec.webp" type="image/webp">
+          <img src="images/yazovir-trakiec.jpg" width="675" height="348" loading="lazy" decoding="async" alt="Язовир Тракиец край село Николово, област Хасково — въздушен изглед">
+        </picture>
       </div>
       <div>
         <p class="eyebrow section-eyebrow">Природа</p>
