@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <!-- Home -->
   <url>
     <loc>https://www.nikolovo.com/</loc>
@@ -108,5 +109,75 @@
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Events -->
+  <url>
+    <loc>https://www.nikolovo.com/sabitiya.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nikolovo.com/sabitiya.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nikolovo.com/en/events.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nikolovo.com/sabitiya.html"/>
+    <image:image><image:loc>https://www.nikolovo.com/images/24-mai-nikolovo-chitalishte-2026.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-1-poster.jpg</video:thumbnail_loc>
+      <video:title>24 май в Николово — момент 1</video:title>
+      <video:description>Празникът на 24 май в Читалището на село Николово, област Хасково.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-1.mp4</video:content_loc>
+      <video:duration>63</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-2-poster.jpg</video:thumbnail_loc>
+      <video:title>24 май в Николово — момент 2</video:title>
+      <video:description>Празникът на 24 май в Читалището на село Николово, област Хасково.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-2.mp4</video:content_loc>
+      <video:duration>65</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-3-poster.jpg</video:thumbnail_loc>
+      <video:title>24 май в Николово — момент 3</video:title>
+      <video:description>Празникът на 24 май в Читалището на село Николово, област Хасково.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-3.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.nikolovo.com/en/events.html</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://www.nikolovo.com/sabitiya.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.nikolovo.com/en/events.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.nikolovo.com/sabitiya.html"/>
+    <image:image><image:loc>https://www.nikolovo.com/images/24-mai-nikolovo-chitalishte-2026.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-1-poster.jpg</video:thumbnail_loc>
+      <video:title>24 May in Nikolovo — moment 1</video:title>
+      <video:description>The 24 May celebration at the community centre of the village of Nikolovo, Haskovo Province.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-1.mp4</video:content_loc>
+      <video:duration>63</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-2-poster.jpg</video:thumbnail_loc>
+      <video:title>24 May in Nikolovo — moment 2</video:title>
+      <video:description>The 24 May celebration at the community centre of the village of Nikolovo, Haskovo Province.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-2.mp4</video:content_loc>
+      <video:duration>65</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://www.nikolovo.com/images/24-mai-nikolovo-2026-3-poster.jpg</video:thumbnail_loc>
+      <video:title>24 May in Nikolovo — moment 3</video:title>
+      <video:description>The 24 May celebration at the community centre of the village of Nikolovo, Haskovo Province.</video:description>
+      <video:content_loc>https://www.nikolovo.com/videos/24-mai-nikolovo-2026-3.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-05-24</video:publication_date>
+    </video:video>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
