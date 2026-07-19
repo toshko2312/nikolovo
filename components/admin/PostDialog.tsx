@@ -237,6 +237,7 @@ export default function PostDialog({ locale, open, onClose, onSaved, post }: Pro
             </button>
           </div>
 
+          <div className="admin-form-body">
           <label className="eyebrow" htmlFor="eyebrowBg">
             {t.eyebrowBg}
           </label>
@@ -388,6 +389,7 @@ export default function PostDialog({ locale, open, onClose, onSaved, post }: Pro
           ) : null}
 
           {error ? <p className="admin-error">{error}</p> : null}
+          </div>
 
           <div className="admin-actions">
             <button type="button" className="field field-button" onClick={requestClose} disabled={busy}>

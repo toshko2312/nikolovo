@@ -200,6 +200,7 @@ export default function LandmarkDialog({ locale, open, onClose, onSaved, card }:
             </button>
           </div>
 
+          <div className="admin-form-body">
           <label className="eyebrow" htmlFor="landmarkTitleBg">
             {t.titleBg}
           </label>
@@ -285,6 +286,7 @@ export default function LandmarkDialog({ locale, open, onClose, onSaved, card }:
           ) : null}
 
           {error ? <p className="admin-error">{error}</p> : null}
+          </div>
 
           <div className="admin-actions">
             <button type="button" className="field field-button" onClick={requestClose} disabled={busy}>

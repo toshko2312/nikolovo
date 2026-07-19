@@ -291,6 +291,7 @@ export default function EventDialog({ locale, open, onClose, onSaved, event }: P
             </button>
           </div>
 
+          <div className="admin-form-body">
           <label className="eyebrow">{t.date}</label>
           <button
             type="button"
@@ -413,6 +414,7 @@ export default function EventDialog({ locale, open, onClose, onSaved, event }: P
           ) : null}
 
           {error ? <p className="admin-error">{error}</p> : null}
+          </div>
 
           <div className="admin-actions">
             <button type="button" className="field field-button" onClick={requestClose} disabled={busy}>
