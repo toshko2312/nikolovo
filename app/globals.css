@@ -1161,6 +1161,30 @@ textarea.field {
 	font-family: inherit;
 }
 
+/* On a phone the form is taller than the screen, so pin the title and the save/cancel
+   row to the edges of .admin-form (the scroll container) instead of letting them scroll
+   away. Negative margins pull the opaque strips out over the form's 26px padding. */
+@media (max-width: 720px) {
+	.admin-form-head {
+		position: sticky;
+		top: 0;
+		z-index: 2;
+		background: var(--card);
+		border-bottom: 1px solid var(--hairline);
+		margin: -26px -26px 18px;
+		padding: 26px 26px 14px;
+	}
+	.admin-actions {
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+		background: var(--card);
+		border-top: 1px solid var(--hairline);
+		margin: 0 -26px -26px;
+		padding: 14px 26px 26px;
+	}
+}
+
 .dropzone {
 	border: 1.5px dashed var(--hairline-2);
 	border-radius: 14px;
