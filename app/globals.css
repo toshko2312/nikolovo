@@ -1198,6 +1198,18 @@ body:has(dialog[open]) {
 		border: 0;
 		box-shadow: none;
 	}
+	/* Absolute controls overlap the wrapped title on narrow screens — stack them above it instead. */
+	.post-head {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.post-head > .admin-item-controls {
+		position: static;
+		order: -1;
+		align-self: flex-end;
+		margin-bottom: 10px;
+	}
 }
 
 .dropzone {
