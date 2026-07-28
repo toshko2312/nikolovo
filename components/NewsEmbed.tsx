@@ -23,12 +23,16 @@ export default function NewsEmbed({
   if (target.kind === 'youtube') {
     return (
       <div className="post-embed">
+        {/*
+         * No width/height on purpose: they become inline pixel dimensions on the
+         * wrapper div, which then can't shrink on a phone. Left off, the wrapper is
+         * auto-sized and lite-youtube keeps its own 16:9 ratio. `style` overrides the
+         * 720px cap in lite-youtube's stylesheet so it fills the post instead.
+         */}
         <YouTubeEmbed
           videoid={target.videoId}
           params={target.params}
           playlabel={title}
-          width={760}
-          height={428}
           style="max-width:100%"
         />
       </div>
