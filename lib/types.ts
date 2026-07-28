@@ -52,6 +52,31 @@ export interface EventRow {
   description_en: string | null;
 }
 
+export interface NewsRecord {
+  id: string;
+  slug: string;
+  /** ISO date, `YYYY-MM-DD`. */
+  date: string;
+  published: boolean;
+  title: Localized;
+  description: Localized;
+  /** Absolute http(s) URL, or null. Turned into an embed by `lib/embed.ts` at render time. */
+  link: string | null;
+}
+
+/** Flat shape mirroring the Supabase table. */
+export interface NewsRow {
+  id: string;
+  slug: string;
+  published_at: string;
+  published: boolean;
+  title_bg: string;
+  title_en: string;
+  description_bg: string | null;
+  description_en: string | null;
+  link_url: string | null;
+}
+
 /** Every page except the home page itself is a valid link target for a home post. */
 export type LinkablePageKey = Exclude<PageKey, 'home'>;
 

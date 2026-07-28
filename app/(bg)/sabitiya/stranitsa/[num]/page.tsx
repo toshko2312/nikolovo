@@ -76,7 +76,12 @@ export default async function EventsPagedPage({ params }: Params) {
           ))}
         </div>
 
-        <Pagination locale="bg" page={data.page} totalPages={data.pages} />
+        <Pagination
+          locale="bg"
+          page={data.page}
+          totalPages={data.pages}
+          hrefFor={(num) => eventsPath('bg', num)}
+        />
       </main>
 
       <SiteFooter locale="bg" />

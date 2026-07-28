@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { eventsPath } from '@/lib/pagination';
 import type { Locale } from '@/lib/routes';
 
 const COPY = {
@@ -11,10 +10,13 @@ export default function Pagination({
   locale,
   page,
   totalPages,
+  hrefFor,
 }: {
   locale: Locale;
   page: number;
   totalPages: number;
+  /** Page number → href, so the same control serves events, news and anything after. */
+  hrefFor: (page: number) => string;
 }) {
   if (totalPages <= 1) return null;
   const t = COPY[locale];
@@ -22,7 +24,7 @@ export default function Pagination({
   return (
     <nav className="pagination" aria-label={t.nav}>
       {page > 1 ? (
-        <Link className="field field-button pagination-edge" href={eventsPath(locale, page - 1)}>
+        <Link className="field field-button pagination-edge" href={hrefFor(page - 1)}>
           {t.prev}
         </Link>
       ) : (
@@ -35,7 +37,7 @@ export default function Pagination({
         {Array.from({ length: totalPages }, (_, i) => i + 1).map((num) => (
           <Link
             key={num}
-            href={eventsPath(locale, num)}
+            href={hrefFor(num)}
             className={num === page ? 'pagination-num pagination-num-current' : 'pagination-num'}
             aria-current={num === page ? 'page' : undefined}
           >
@@ -45,7 +47,7 @@ export default function Pagination({
       </div>
 
       {page < totalPages ? (
-        <Link className="field field-button pagination-edge" href={eventsPath(locale, page + 1)}>
+        <Link className="field field-button pagination-edge" href={hrefFor(page + 1)}>
           {t.next}
         </Link>
       ) : (

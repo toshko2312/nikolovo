@@ -8,7 +8,7 @@ import SiteHeader from '@/components/SiteHeader';
 import { getEventsPaged } from '@/lib/data/events';
 import { eventsJsonLd } from '@/lib/jsonld';
 import { imageUrl } from '@/lib/media';
-import { EVENTS_PER_PAGE, totalPages } from '@/lib/pagination';
+import { EVENTS_PER_PAGE, eventsPath, totalPages } from '@/lib/pagination';
 import { languageAlternates } from '@/lib/routes';
 import { OG_IMAGES } from '@/lib/site';
 
@@ -80,7 +80,12 @@ export default async function EventsPage() {
           ))}
         </div>
 
-        <Pagination locale="bg" page={1} totalPages={pages} />
+        <Pagination
+          locale="bg"
+          page={1}
+          totalPages={pages}
+          hrefFor={(num) => eventsPath('bg', num)}
+        />
       </main>
 
       <SiteFooter locale="bg" />

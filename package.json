@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/toshko2312/nikolovo#readme",
   "dependencies": {
+    "@next/third-parties": "^16.2.12",
     "@supabase/supabase-js": "^2.110.7",
     "@vercel/analytics": "^2.0.1",
     "next": "^16.2.10",

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getEvents } from '@/lib/data/events';
+import { getNews } from '@/lib/data/news';
 import { imageUrl, videoUrl } from '@/lib/media';
 import { PAGE_ORDER, languageAlternates, paths, type Locale, type PageKey } from '@/lib/routes';
 import { abs } from '@/lib/site';
@@ -21,6 +22,7 @@ const pageMeta: Record<
 > = {
   home: { changeFrequency: 'monthly', priority: 1.0, images: HERO_IMAGES },
   events: { changeFrequency: 'weekly', priority: 0.9 },
+  news: { changeFrequency: 'weekly', priority: 0.85 },
   history: { changeFrequency: 'yearly', priority: 0.8 },
   landmarks: { changeFrequency: 'monthly', priority: 0.8, images: RESERVOIR_IMAGE },
   gettingHere: { changeFrequency: 'yearly', priority: 0.7 },
@@ -28,8 +30,9 @@ const pageMeta: Record<
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const events = await getEvents();
+  const [events, news] = await Promise.all([getEvents(), getNews()]);
   const eventsLastmod = events[0]?.date ?? STATIC_LASTMOD;
+  const newsLastmod = news[0]?.date ?? STATIC_LASTMOD;
 
   const eventImages = events.flatMap((event) =>
     event.media.filter((m) => m.kind === 'image').map((m) => abs(imageUrl(m.path))),
@@ -45,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
       entries.push({
         url: abs(paths[key][locale]),
-        lastModified: isEvents ? eventsLastmod : STATIC_LASTMOD,
+        lastModified: isEvents ? eventsLastmod : key === 'news' ? newsLastmod : STATIC_LASTMOD,
         changeFrequency: meta.changeFrequency,
         priority: meta.priority,
         alternates: {

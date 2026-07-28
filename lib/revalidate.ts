@@ -6,3 +6,10 @@ export function revalidateEventPages() {
   revalidatePath('/en/events');
   revalidatePath('/sitemap.xml');
 }
+
+/** Everything that renders news data, refreshed after a write. */
+export function revalidateNewsPages() {
+  revalidatePath('/novini');
+  revalidatePath('/en/news');
+  revalidatePath('/sitemap.xml');
+}

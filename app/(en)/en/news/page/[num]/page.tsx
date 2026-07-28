@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
-import AdminEventControls from '@/components/admin/AdminEventControls';
-import EventPost from '@/components/EventPost';
+import AdminNewsControls from '@/components/admin/AdminNewsControls';
+import NewsPost from '@/components/NewsPost';
 import Pagination from '@/components/Pagination';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import { getEventsPaged } from '@/lib/data/events';
-import { EVENTS_PER_PAGE, eventsPath, totalPages } from '@/lib/pagination';
+import { getNewsPaged } from '@/lib/data/news';
+import { NEWS_PER_PAGE, newsPath, totalPages } from '@/lib/pagination';
 import { paths } from '@/lib/routes';
 
 export const revalidate = 3600;
@@ -17,16 +17,16 @@ async function loadPage(numParam: string) {
   const page = Number(numParam);
   if (!Number.isInteger(page) || page < 1) return null;
 
-  const { events, total } = await getEventsPaged({ page, perPage: EVENTS_PER_PAGE });
-  const pages = totalPages(total);
+  const { news, total } = await getNewsPaged({ page, perPage: NEWS_PER_PAGE });
+  const pages = totalPages(total, NEWS_PER_PAGE);
   if (page > pages) return null;
 
-  return { page, events, pages };
+  return { page, news, pages };
 }
 
 export async function generateStaticParams() {
-  const { total } = await getEventsPaged({ page: 1, perPage: EVENTS_PER_PAGE });
-  const pages = totalPages(total);
+  const { total } = await getNewsPaged({ page: 1, perPage: NEWS_PER_PAGE });
+  const pages = totalPages(total, NEWS_PER_PAGE);
   return Array.from({ length: Math.max(0, pages - 1) }, (_, i) => ({ num: String(i + 2) }));
 }
 
@@ -35,44 +35,44 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const data = await loadPage(num);
   if (!data) return {};
 
-  const canonical = eventsPath('en', data.page);
+  const canonical = newsPath('en', data.page);
   return {
-    title: `Events in the village of Nikolovo — page ${data.page} | Haskovo Province`,
+    title: `News from the village of Nikolovo — page ${data.page} | Haskovo Province`,
     robots: { index: true, follow: true },
     alternates: {
       canonical,
       languages: {
-        bg: eventsPath('bg', data.page),
+        bg: newsPath('bg', data.page),
         en: canonical,
-        'x-default': eventsPath('bg', data.page),
+        'x-default': newsPath('bg', data.page),
       },
     },
   };
 }
 
-export default async function EnEventsPagedPage({ params }: Params) {
+export default async function NewsPagedPage({ params }: Params) {
   const { num } = await params;
 
-  if (num === '1') redirect(paths.events.en);
+  if (num === '1') redirect(paths.news.en);
 
   const data = await loadPage(num);
   if (!data) notFound();
 
   return (
     <>
-      <SiteHeader locale="en" current="events" />
+      <SiteHeader locale="en" current="news" />
 
       <main className="fade">
         <div className="page-head">
-          <p className="page-eyebrow eyebrow">Events</p>
-          <h1 className="page-title">Life in Nikolovo</h1>
+          <p className="page-eyebrow eyebrow">News</p>
+          <h1 className="page-title">What&rsquo;s new in Nikolovo</h1>
         </div>
 
         <div className="page-body">
-          <AdminEventControls locale="en" />
+          <AdminNewsControls locale="en" />
 
-          {data.events.map((event) => (
-            <EventPost key={event.id} event={event} locale="en" />
+          {data.news.map((item) => (
+            <NewsPost key={item.id} item={item} locale="en" />
           ))}
         </div>
 
@@ -80,7 +80,7 @@ export default async function EnEventsPagedPage({ params }: Params) {
           locale="en"
           page={data.page}
           totalPages={data.pages}
-          hrefFor={(num) => eventsPath('en', num)}
+          hrefFor={(n) => newsPath('en', n)}
         />
       </main>
 

@@ -1,6 +1,6 @@
 import { imageUrl, isoDuration, videoUrl } from './media';
 import { navLabels, paths, type Locale } from './routes';
-import type { EventRecord } from './types';
+import type { EventRecord, NewsRecord } from './types';
 import { SITE_URL, abs } from './site';
 
 const REGION: Record<Locale, string> = { bg: 'Област Хасково', en: 'Haskovo Province' };
@@ -80,5 +80,27 @@ export function eventsJsonLd(events: EventRecord[], locale: Locale) {
   return {
     '@context': 'https://schema.org',
     '@graph': [...postings, breadcrumbs(locale, 'events')],
+  };
+}
+
+/** One BlogPosting per news item; a linked page becomes its `url`. */
+export function newsJsonLd(items: NewsRecord[], locale: Locale) {
+  const pageUrl = abs(paths.news[locale]);
+
+  const postings = items.map((item) => ({
+    '@type': 'BlogPosting',
+    headline: item.title[locale],
+    description: item.description[locale],
+    inLanguage: locale,
+    datePublished: item.date,
+    dateModified: item.date,
+    mainEntityOfPage: pageUrl,
+    ...(item.link ? { url: item.link } : {}),
+    about: placeAbout(locale),
+  }));
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [...postings, breadcrumbs(locale, 'news')],
   };
 }

@@ -1,10 +1,18 @@
 export type Locale = 'bg' | 'en';
 
-export type PageKey = 'home' | 'events' | 'history' | 'landmarks' | 'gettingHere' | 'gallery';
+export type PageKey =
+  | 'home'
+  | 'events'
+  | 'news'
+  | 'history'
+  | 'landmarks'
+  | 'gettingHere'
+  | 'gallery';
 
 export const PAGE_ORDER: PageKey[] = [
   'home',
   'events',
+  'news',
   'history',
   'landmarks',
   'gettingHere',
@@ -14,6 +22,7 @@ export const PAGE_ORDER: PageKey[] = [
 export const paths: Record<PageKey, Record<Locale, string>> = {
   home: { bg: '/', en: '/en' },
   events: { bg: '/sabitiya', en: '/en/events' },
+  news: { bg: '/novini', en: '/en/news' },
   history: { bg: '/istoriya', en: '/en/history' },
   landmarks: { bg: '/zabelezhitelnosti', en: '/en/landmarks' },
   gettingHere: { bg: '/kak-da-stignete', en: '/en/getting-here' },
@@ -23,6 +32,7 @@ export const paths: Record<PageKey, Record<Locale, string>> = {
 export const navLabels: Record<PageKey, Record<Locale, string>> = {
   home: { bg: 'Начало', en: 'Home' },
   events: { bg: 'Събития', en: 'Events' },
+  news: { bg: 'Новини', en: 'News' },
   history: { bg: 'История', en: 'History' },
   landmarks: { bg: 'Забележителности', en: 'Landmarks' },
   gettingHere: { bg: 'Как да стигнете', en: 'Getting here' },

@@ -760,6 +760,38 @@ img {
 	background: #000;
 }
 
+/* ---- News link / embed ---- */
+.post-embed {
+	margin: 0;
+}
+.embed-frame {
+	width: 100%;
+	border-radius: var(--imgr);
+	overflow: hidden;
+	background: #000;
+	margin-bottom: 10px;
+}
+.embed-frame iframe {
+	width: 100%;
+	height: 100%;
+	min-height: 152px;
+	border: 0;
+	display: block;
+}
+/* lite-youtube ships its own inline styles; only the corners need matching. */
+.post-embed lite-youtube {
+	max-width: 100%;
+	border-radius: var(--imgr);
+	overflow: hidden;
+}
+.post-link {
+	display: inline-block;
+	color: var(--accent);
+	font-size: 15px;
+	line-height: 1.6;
+	word-break: break-word;
+}
+
 /* Custom video player */
 .player {
 	position: relative;
@@ -1060,6 +1092,11 @@ textarea.field {
 	letter-spacing: 0;
 	text-transform: none;
 }
+/* Live "this URL will embed as…" note under the news link field. */
+.admin-embed-hint {
+	margin: 6px 0 0;
+	font-size: 13px;
+}
 
 /* ---- Admin per-item edit/delete ---- */
 .post-head {
@@ -1078,6 +1115,14 @@ textarea.field {
 	display: flex;
 	gap: 6px;
 	z-index: 5;
+}
+/*
+ * The controls are absolute, so a long title runs underneath them and its last line
+ * becomes unclickable. Reserve their width (2 × 40px + 6px gap + breathing room).
+ * :has() keeps the gap out of the layout for visitors, who get no controls at all.
+ */
+.post-head:has(> .admin-item-controls) .post-title {
+	padding-right: 100px;
 }
 /* .section spans the viewport while its content is capped at 1140px — keep the controls on the content edge. */
 .section > .admin-item-controls {
@@ -1209,6 +1254,10 @@ body:has(dialog[open]) {
 		order: -1;
 		align-self: flex-end;
 		margin-bottom: 10px;
+	}
+	/* Nothing overlaps the title once the controls sit above it. */
+	.post-head:has(> .admin-item-controls) .post-title {
+		padding-right: 0;
 	}
 }
 
