@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import { breadcrumbs } from '@/lib/jsonld';
-import { languageAlternates, paths } from '@/lib/routes';
-import { GEO, GOOGLE_MAPS_URL, OSM_EMBED_URL, OSM_LARGE_MAP_URL, abs } from '@/lib/site';
+import { breadcrumbs, villagePlace } from '@/lib/jsonld';
+import { languageAlternates } from '@/lib/routes';
+import { GEO, GOOGLE_MAPS_URL, OSM_EMBED_URL, OSM_LARGE_MAP_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Как да стигнете до Николово — на 24 км от Хасково',
@@ -38,22 +38,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Place',
-      name: 'Николово',
-      description: 'Село в област Хасково, България, на около 24 км от град Хасково.',
-      url: abs(paths.gettingHere.bg),
-      hasMap: GOOGLE_MAPS_URL,
-      geo: { '@type': 'GeoCoordinates', latitude: GEO.latitude, longitude: GEO.longitude },
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Област Хасково',
-        addressCountry: 'BG',
-      },
-    },
-    breadcrumbs('bg', 'gettingHere'),
-  ],
+  '@graph': [villagePlace('bg'), breadcrumbs('bg', 'gettingHere')],
 };
 
 export default function GettingHerePage() {

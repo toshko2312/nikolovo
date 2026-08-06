@@ -3,7 +3,7 @@ import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import ZoomableImage from '@/components/ZoomableImage';
-import { breadcrumbs } from '@/lib/jsonld';
+import { breadcrumbs, villagePlace } from '@/lib/jsonld';
 import { languageAlternates } from '@/lib/routes';
 
 export const metadata: Metadata = {
@@ -35,7 +35,10 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = { '@context': 'https://schema.org', ...breadcrumbs('bg', 'gallery') };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [villagePlace('bg'), breadcrumbs('bg', 'gallery')],
+};
 
 const leadingPlaceholders = [
   { chip: 'снимка · панорама', height: 300 },

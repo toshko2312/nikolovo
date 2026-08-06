@@ -2,16 +2,9 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import { breadcrumbs } from '@/lib/jsonld';
-import { languageAlternates, paths } from '@/lib/routes';
-import {
-  GEO,
-  GOOGLE_MAPS_URL,
-  OG_IMAGES,
-  OSM_EMBED_URL,
-  OSM_LARGE_MAP_URL,
-  abs,
-} from '@/lib/site';
+import { breadcrumbs, villagePlace } from '@/lib/jsonld';
+import { languageAlternates } from '@/lib/routes';
+import { GEO, GOOGLE_MAPS_URL, OG_IMAGES, OSM_EMBED_URL, OSM_LARGE_MAP_URL } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'How to get to Nikolovo — 24 km from Haskovo',
@@ -45,22 +38,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'Place',
-      name: 'Nikolovo',
-      description: 'A village in Haskovo Province, Bulgaria, about 24 km from the town of Haskovo.',
-      url: abs(paths.gettingHere.en),
-      hasMap: GOOGLE_MAPS_URL,
-      geo: { '@type': 'GeoCoordinates', latitude: GEO.latitude, longitude: GEO.longitude },
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Haskovo Province',
-        addressCountry: 'BG',
-      },
-    },
-    breadcrumbs('en', 'gettingHere'),
-  ],
+  '@graph': [villagePlace('en'), breadcrumbs('en', 'gettingHere')],
 };
 
 export default function EnGettingHerePage() {

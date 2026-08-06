@@ -5,7 +5,7 @@ import LandmarkCard from '@/components/LandmarkCard';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { getLandmarkCards } from '@/lib/data/landmark-cards';
-import { breadcrumbs } from '@/lib/jsonld';
+import { breadcrumbs, villagePlace } from '@/lib/jsonld';
 import { languageAlternates } from '@/lib/routes';
 import { OG_IMAGES } from '@/lib/site';
 
@@ -41,7 +41,10 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = { '@context': 'https://schema.org', ...breadcrumbs('en', 'landmarks') };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [villagePlace('en'), breadcrumbs('en', 'landmarks')],
+};
 
 export default async function EnLandmarksPage() {
   const cards = await getLandmarkCards();

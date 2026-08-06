@@ -7,8 +7,9 @@ import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { getHomePosts } from '@/lib/data/home-posts';
+import { placeRef, villagePlace } from '@/lib/jsonld';
 import { languageAlternates, paths } from '@/lib/routes';
-import { GEO, GOOGLE_MAPS_URL, OG_IMAGES, abs } from '@/lib/site';
+import { OG_IMAGES, abs } from '@/lib/site';
 
 export const revalidate = 3600;
 
@@ -63,23 +64,9 @@ const jsonLd = {
       name: 'Nikolovo',
       description: 'Official website of the village of Nikolovo, Haskovo Province.',
       inLanguage: 'en',
+      about: placeRef(),
     },
-    {
-      '@type': ['Place', 'TouristDestination'],
-      '@id': `${abs('/')}#place`,
-      name: 'Nikolovo',
-      description:
-        'A village in Haskovo Province, Bulgaria, by the Trakiets Reservoir, 24 km from Haskovo.',
-      url: abs('/en'),
-      image: abs(OG_IMAGES.hero.url),
-      geo: { '@type': 'GeoCoordinates', latitude: GEO.latitude, longitude: GEO.longitude },
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Haskovo Province',
-        addressCountry: 'BG',
-      },
-      hasMap: GOOGLE_MAPS_URL,
-    },
+    villagePlace('en'),
   ],
 };
 

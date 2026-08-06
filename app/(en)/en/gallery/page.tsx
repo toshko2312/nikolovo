@@ -3,7 +3,7 @@ import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import ZoomableImage from '@/components/ZoomableImage';
-import { breadcrumbs } from '@/lib/jsonld';
+import { breadcrumbs, villagePlace } from '@/lib/jsonld';
 import { languageAlternates } from '@/lib/routes';
 import { OG_IMAGES } from '@/lib/site';
 
@@ -36,7 +36,10 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = { '@context': 'https://schema.org', ...breadcrumbs('en', 'gallery') };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [villagePlace('en'), breadcrumbs('en', 'gallery')],
+};
 
 const leadingPlaceholders = [
   { chip: 'photo · panorama', height: 300 },

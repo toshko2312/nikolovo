@@ -7,8 +7,9 @@ import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { getHomePosts } from '@/lib/data/home-posts';
+import { placeRef, villagePlace } from '@/lib/jsonld';
 import { languageAlternates, paths } from '@/lib/routes';
-import { GEO, GOOGLE_MAPS_URL, OG_IMAGES, abs } from '@/lib/site';
+import { OG_IMAGES, abs } from '@/lib/site';
 
 /** Static while USE_SUPABASE is false; revalidates hourly once posts come from the database. */
 export const revalidate = 3600;
@@ -64,22 +65,9 @@ const jsonLd = {
       name: 'Николово',
       description: 'Официален сайт за село Николово, област Хасково.',
       inLanguage: 'bg',
+      about: placeRef(),
     },
-    {
-      '@type': ['Place', 'TouristDestination'],
-      '@id': `${abs('/')}#place`,
-      name: 'Николово',
-      description: 'Село в област Хасково, България, край язовир Тракиец, на 24 км от Хасково.',
-      url: abs('/'),
-      image: abs(OG_IMAGES.hero.url),
-      geo: { '@type': 'GeoCoordinates', latitude: GEO.latitude, longitude: GEO.longitude },
-      address: {
-        '@type': 'PostalAddress',
-        addressRegion: 'Област Хасково',
-        addressCountry: 'BG',
-      },
-      hasMap: GOOGLE_MAPS_URL,
-    },
+    villagePlace('bg'),
   ],
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import { breadcrumbs, placeAbout } from '@/lib/jsonld';
+import { breadcrumbs, placeRef, villagePlace } from '@/lib/jsonld';
 import { languageAlternates, paths } from '@/lib/routes';
 import { abs } from '@/lib/site';
 
@@ -45,8 +45,9 @@ const jsonLd = {
       description: 'Имената на селото, Никола Арнаудов и преданието за „Света Богородица“.',
       inLanguage: 'bg',
       mainEntityOfPage: abs(paths.history.bg),
-      about: placeAbout('bg'),
+      about: placeRef(),
     },
+    villagePlace('bg'),
     breadcrumbs('bg', 'history'),
   ],
 };

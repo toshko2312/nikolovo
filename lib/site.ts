@@ -1,10 +1,38 @@
 import { imageUrl } from './media';
+import type { Locale } from './routes';
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.nikolovo.com';
 
 export const GEO = {
   latitude: 41.82644947933966,
   longitude: 25.409095246009304,
+} as const;
+
+/**
+ * Wikidata Q7036416 — Николово, община Хасково. Deliberately distinct from the
+ * same-named villages in Ruse (Q4320791) and Montana (Q1085319) provinces, which
+ * otherwise outrank this one for the bare village name.
+ *
+ * GEO above is the site's own coordinate and differs from Wikidata's by ~200 m.
+ * That is intentional; do not reconcile them.
+ */
+export const VILLAGE = {
+  qid: 'Q7036416',
+  wikidata: 'https://www.wikidata.org/entity/Q7036416',
+  /** Readable IRIs; emit through encodeURI() for the Cyrillic title. */
+  wikipedia: {
+    bg: 'https://bg.wikipedia.org/wiki/Николово_(област_Хасково)',
+    en: 'https://en.wikipedia.org/wiki/Nikolovo,_Haskovo_Province',
+  } as Record<Locale, string>,
+  postalCode: '6364',
+  ekatte: '51682',
+  country: 'BG',
+  name: { bg: 'Николово', en: 'Nikolovo' } as Record<Locale, string>,
+  region: { bg: 'Област Хасково', en: 'Haskovo Province' } as Record<Locale, string>,
+  municipality: {
+    wikidata: 'https://www.wikidata.org/entity/Q2454587',
+    name: { bg: 'Община Хасково', en: 'Haskovo Municipality' } as Record<Locale, string>,
+  },
 } as const;
 
 export const GOOGLE_MAPS_URL = 'https://maps.app.goo.gl/VVNS8qXDDmce1BBg8';
