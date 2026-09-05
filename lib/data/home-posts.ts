@@ -1,5 +1,5 @@
 import { homePosts as localPosts } from '@/content/home-posts';
-import type { HomePostRecord, HomePostRow } from '@/lib/types';
+import type { HomePostImage, HomePostRecord, HomePostRow } from '@/lib/types';
 import { anonClient, useSupabase } from './supabase';
 
 const COLUMNS =
@@ -45,4 +45,23 @@ export async function getHomePosts(): Promise<HomePostRecord[]> {
 export async function getHomePostById(id: string): Promise<HomePostRecord | null> {
   const all = await getHomePosts();
   return all.find((post) => post.id === id) ?? null;
+}
+
+/**
+ * home_posts has no stable key — the local fallback ids are semantic while the database
+ * mints uuids — so the museum post is found by its title in either language.
+ */
+const MUSEUM_TITLES = ['Музеят на селото', 'The village museum'];
+
+/**
+ * The history page's aside shows whatever photo the landing page's museum post is showing,
+ * rather than a path of its own. Replacing that photo deletes the old storage object, so a
+ * copied path here would silently break; reading it live never can.
+ */
+export async function getMuseumImage(): Promise<HomePostImage | null> {
+  const posts = await getHomePosts();
+  const museum = posts.find(
+    (post) => MUSEUM_TITLES.includes(post.title.bg.trim()) || MUSEUM_TITLES.includes(post.title.en.trim()),
+  );
+  return museum?.image ?? null;
 }

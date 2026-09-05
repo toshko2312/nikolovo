@@ -1,10 +1,16 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
+import { getMuseumImage } from '@/lib/data/home-posts';
 import { breadcrumbs, placeRef, villagePlace } from '@/lib/jsonld';
+import { imageUrl } from '@/lib/media';
 import { languageAlternates, paths } from '@/lib/routes';
 import { abs } from '@/lib/site';
+
+/** Static while USE_SUPABASE is false; revalidates hourly once the photo comes from the database. */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'История на село Николово — от Ески кьой до днес',
@@ -52,7 +58,9 @@ const jsonLd = {
   ],
 };
 
-export default function HistoryPage() {
+export default async function HistoryPage() {
+  const museum = await getMuseumImage();
+
   return (
     <>
       <JsonLd data={jsonLd} />
@@ -97,10 +105,20 @@ export default function HistoryPage() {
             </div>
 
             <aside>
-              <div className="aside-media ph">
-                <div className="chip" style={{ left: 14, bottom: 14 }}>
-                  снимка · музеят / архив
-                </div>
+              <div className={museum ? 'aside-media' : 'aside-media ph'}>
+                {museum ? (
+                  <Image
+                    src={imageUrl(museum.path)}
+                    width={museum.width}
+                    height={museum.height}
+                    alt={museum.alt.bg}
+                    sizes="(max-width: 900px) 100vw, 380px"
+                  />
+                ) : (
+                  <div className="chip" style={{ left: 14, bottom: 14 }}>
+                    снимка · музеят / архив
+                  </div>
+                )}
               </div>
               <p className="eyebrow" style={{ display: 'block', marginBottom: 16 }}>
                 Хронология
