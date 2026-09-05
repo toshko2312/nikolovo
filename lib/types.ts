@@ -143,6 +143,24 @@ export interface LandmarkCardRow {
   chip_en: string | null;
 }
 
+export interface GalleryPhotoRecord {
+  id: string;
+  sortOrder: number;
+  image: HomePostImage;
+  /** Shown as the chip over the photo; also its alt text. */
+  caption: Localized;
+}
+
+export interface GalleryPhotoRow {
+  id: string;
+  sort_order: number;
+  image_path: string;
+  image_width: number;
+  image_height: number;
+  caption_bg: string;
+  caption_en: string;
+}
+
 export interface EventMediaRow {
   id: string;
   event_id: string;

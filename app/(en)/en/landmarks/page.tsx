@@ -58,10 +58,7 @@ export default async function EnLandmarksPage() {
         <div className="page-head">
           <p className="page-eyebrow eyebrow">Landmarks</p>
           <h1 className="page-title">Places in the village</h1>
-          <p className="intro">
-            The spots worth seeing in Nikolovo.{' '}
-            <span className="mono">(placeholders — add real places and photos)</span>
-          </p>
+          <p className="intro">The spots worth seeing in Nikolovo.</p>
         </div>
 
         <div className="page-body">

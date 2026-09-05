@@ -57,7 +57,6 @@ export const ui: Record<Locale, Record<string, string>> = {
     footerTel: 'тел. — уточни',
     footerEmail: 'имейл — уточни',
     footerCopyright: '© 2026 Николово · Област Хасково',
-    footerPlaceholders: 'Снимките са заместители',
   },
   en: {
     brandName: 'Nikolovo',
@@ -76,7 +75,6 @@ export const ui: Record<Locale, Record<string, string>> = {
     footerTel: 'tel. — TBC',
     footerEmail: 'email — TBC',
     footerCopyright: '© 2026 Nikolovo · Haskovo Province',
-    footerPlaceholders: 'Placeholder photos',
   },
 };
 

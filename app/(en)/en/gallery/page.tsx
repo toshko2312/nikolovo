@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
+import AdminGalleryControls from '@/components/admin/AdminGalleryControls';
+import GalleryPhoto from '@/components/GalleryPhoto';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import ZoomableImage from '@/components/ZoomableImage';
+import { getGalleryPhotos } from '@/lib/data/gallery-photos';
 import { breadcrumbs, villagePlace } from '@/lib/jsonld';
 import { languageAlternates } from '@/lib/routes';
 import { OG_IMAGES } from '@/lib/site';
+
+/** Static while USE_SUPABASE is false; revalidates hourly once photos come from the database. */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Gallery — the village of Nikolovo in frames | Haskovo Province',
@@ -41,21 +46,9 @@ const jsonLd = {
   '@graph': [villagePlace('en'), breadcrumbs('en', 'gallery')],
 };
 
-const leadingPlaceholders = [
-  { chip: 'photo · panorama', height: 300 },
-  { chip: 'photo · church', height: 220 },
-];
+export default async function EnGalleryPage() {
+  const photos = await getGalleryPhotos();
 
-const trailingPlaceholders = [
-  { chip: 'photo · houses', height: 240 },
-  { chip: 'photo · museum', height: 320 },
-  { chip: 'photo · fair', height: 210 },
-  { chip: 'photo · surroundings', height: 280 },
-  { chip: 'photo · square', height: 230 },
-  { chip: 'photo · nature', height: 300 },
-];
-
-export default function EnGalleryPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
@@ -65,31 +58,14 @@ export default function EnGalleryPage() {
         <div className="page-head">
           <p className="page-eyebrow eyebrow">Gallery</p>
           <h1 className="page-title">The village in frames</h1>
-          <p className="intro">Replace the placeholders with photos of Nikolovo.</p>
         </div>
 
         <div className="page-body">
+          <AdminGalleryControls locale="en" />
+
           <div className="gallery">
-            {leadingPlaceholders.map((item) => (
-              <div className="gallery-item ph" style={{ height: item.height }} key={item.chip}>
-                <div className="chip">{item.chip}</div>
-              </div>
-            ))}
-
-            <div className="gallery-item">
-              <ZoomableImage
-                src="/images/yazovir-trakiec.jpg"
-                width={675}
-                height={348}
-                alt="Aerial view of the Trakiets Reservoir near Nikolovo, Haskovo Province"
-                sizes="(max-width: 700px) 100vw, 340px"
-              />
-            </div>
-
-            {trailingPlaceholders.map((item) => (
-              <div className="gallery-item ph" style={{ height: item.height }} key={item.chip}>
-                <div className="chip">{item.chip}</div>
-              </div>
+            {photos.map((photo) => (
+              <GalleryPhoto key={photo.id} photo={photo} locale="en" />
             ))}
           </div>
         </div>

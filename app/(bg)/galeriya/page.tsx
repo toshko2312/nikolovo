@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
+import AdminGalleryControls from '@/components/admin/AdminGalleryControls';
+import GalleryPhoto from '@/components/GalleryPhoto';
 import JsonLd from '@/components/JsonLd';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
-import ZoomableImage from '@/components/ZoomableImage';
+import { getGalleryPhotos } from '@/lib/data/gallery-photos';
 import { breadcrumbs, villagePlace } from '@/lib/jsonld';
 import { languageAlternates } from '@/lib/routes';
+
+/** Static while USE_SUPABASE is false; revalidates hourly once photos come from the database. */
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Галерия — село Николово в кадри | Област Хасково',
@@ -40,21 +45,9 @@ const jsonLd = {
   '@graph': [villagePlace('bg'), breadcrumbs('bg', 'gallery')],
 };
 
-const leadingPlaceholders = [
-  { chip: 'снимка · панорама', height: 300 },
-  { chip: 'снимка · храм', height: 220 },
-];
+export default async function GalleryPage() {
+  const photos = await getGalleryPhotos();
 
-const trailingPlaceholders = [
-  { chip: 'снимка · къщи', height: 240 },
-  { chip: 'снимка · музей', height: 320 },
-  { chip: 'снимка · събор', height: 210 },
-  { chip: 'снимка · околности', height: 280 },
-  { chip: 'снимка · площад', height: 230 },
-  { chip: 'снимка · природа', height: 300 },
-];
-
-export default function GalleryPage() {
   return (
     <>
       <JsonLd data={jsonLd} />
@@ -64,31 +57,14 @@ export default function GalleryPage() {
         <div className="page-head">
           <p className="page-eyebrow eyebrow">Галерия</p>
           <h1 className="page-title">Селото в кадри</h1>
-          <p className="intro">Замести плейсхолдерите със снимки на Николово.</p>
         </div>
 
         <div className="page-body">
+          <AdminGalleryControls locale="bg" />
+
           <div className="gallery">
-            {leadingPlaceholders.map((item) => (
-              <div className="gallery-item ph" style={{ height: item.height }} key={item.chip}>
-                <div className="chip">{item.chip}</div>
-              </div>
-            ))}
-
-            <div className="gallery-item">
-              <ZoomableImage
-                src="/images/yazovir-trakiec.jpg"
-                width={675}
-                height={348}
-                alt="Язовир Тракиец край село Николово, област Хасково"
-                sizes="(max-width: 700px) 100vw, 340px"
-              />
-            </div>
-
-            {trailingPlaceholders.map((item) => (
-              <div className="gallery-item ph" style={{ height: item.height }} key={item.chip}>
-                <div className="chip">{item.chip}</div>
-              </div>
+            {photos.map((photo) => (
+              <GalleryPhoto key={photo.id} photo={photo} locale="bg" />
             ))}
           </div>
         </div>

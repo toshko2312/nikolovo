@@ -40,7 +40,6 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
           <span>{t.footerCopyright}</span>
-          <span>{t.footerPlaceholders}</span>
         </div>
       </div>
     </footer>

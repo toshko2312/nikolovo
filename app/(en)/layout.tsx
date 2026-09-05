@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import ThemeScript from '@/components/ThemeScript';
 import { SITE_URL } from '@/lib/site';
 import '../globals.css';
@@ -30,6 +31,7 @@ export default function EnLayout({ children }: { children: React.ReactNode }) {
         />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

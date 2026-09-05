@@ -8,7 +8,7 @@ import { imageUrl, MEDIA_CACHE_CONTROL } from '@/lib/media';
 import type { Locale } from '@/lib/routes';
 import type { LandmarkCardRecord } from '@/lib/types';
 import { browserClient } from '@/lib/supabase-browser';
-import { imageMeta } from './media-meta';
+import { prepareImage } from './media-meta';
 
 const COPY = {
   bg: {
@@ -144,22 +144,22 @@ export default function LandmarkDialog({ locale, open, onClose, onSaved, card }:
       let image: LandmarkInput['image'] = null;
 
       if (picked) {
-        const meta = await imageMeta(picked.file);
+        const prepared = await prepareImage(picked.file);
         const [target] = await prepareUploads([
-          { bucket: 'images', filename: picked.file.name, slugHint: titleBg },
+          { bucket: 'images', filename: prepared.filename, slugHint: titleBg },
         ]);
         const { error: uploadError } = await browserClient()
           .storage.from(target.bucket)
-          .uploadToSignedUrl(target.path, target.token, picked.file, {
+          .uploadToSignedUrl(target.path, target.token, prepared.blob, {
             cacheControl: MEDIA_CACHE_CONTROL,
-            contentType: picked.file.type || undefined,
+            contentType: prepared.blob.type || undefined,
           });
         if (uploadError) throw new Error(`Upload failed: ${uploadError.message}`);
 
         image = {
           path: target.path,
-          width: meta.width,
-          height: meta.height,
+          width: prepared.width,
+          height: prepared.height,
           alt: { bg: titleBg.trim(), en: titleEn.trim() },
         };
       } else if (existingImage && !imageRemoved) {

@@ -58,10 +58,7 @@ export default async function LandmarksPage() {
         <div className="page-head">
           <p className="page-eyebrow eyebrow">Забележителности</p>
           <h1 className="page-title">Места в селото</h1>
-          <p className="intro">
-            Кътчетата, които си струва да видите в Николово.{' '}
-            <span className="mono">(заместители — добави реални места и снимки)</span>
-          </p>
+          <p className="intro">Кътчетата, които си струва да видите в Николово.</p>
         </div>
 
         <div className="page-body">

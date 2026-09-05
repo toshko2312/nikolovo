@@ -18,7 +18,7 @@ import { imageUrl, MEDIA_CACHE_CONTROL } from '@/lib/media';
 import type { Locale } from '@/lib/routes';
 import type { EventRecord } from '@/lib/types';
 import { browserClient } from '@/lib/supabase-browser';
-import { imageMeta, videoMeta, type ImageMeta, type VideoMeta } from './media-meta';
+import { prepareImage, videoMeta, type PreparedImage, type VideoMeta } from './media-meta';
 
 const COPY = {
   bg: {
@@ -190,22 +190,23 @@ export default function EventDialog({ locale, open, onClose, onSaved, event }: P
       // so a broken file fails the whole submit instead of leaving orphans in storage.
       type Described =
         | { item: Picked; video: VideoMeta; image?: undefined }
-        | { item: Picked; image: ImageMeta; video?: undefined };
+        | { item: Picked; image: PreparedImage; video?: undefined };
 
       const described: Described[] = await Promise.all(
         picked.map(
           async (item): Promise<Described> =>
             item.isVideo
               ? { item, video: await videoMeta(item.file) }
-              : { item, image: await imageMeta(item.file) },
+              : { item, image: await prepareImage(item.file) },
         ),
       );
 
       const requests: UploadRequest[] = [];
-      described.forEach(({ item, video }) => {
+      described.forEach(({ item, video, image }) => {
         requests.push({
           bucket: item.isVideo ? 'videos' : 'images',
-          filename: item.file.name,
+          // Videos are uploaded as they came; stills carry the .webp name prepareImage gave them.
+          filename: video ? item.file.name : image.filename,
           slugHint: titleBg,
         });
         if (video) {
@@ -222,7 +223,7 @@ export default function EventDialog({ locale, open, onClose, onSaved, event }: P
 
       for (const entry of described) {
         const fileTarget = targets[cursor++];
-        await upload(fileTarget, entry.item.file);
+        await upload(fileTarget, entry.video ? entry.item.file : entry.image.blob);
 
         if (entry.video) {
           const posterTarget = targets[cursor++];

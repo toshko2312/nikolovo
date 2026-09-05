@@ -61,7 +61,16 @@ body {
 	background: var(--bg);
 	color: var(--ink);
 	min-height: 100vh;
+	/* dvh keeps the footer off the fold when mobile browser chrome hides and reappears. */
+	min-height: 100dvh;
 	overflow-x: hidden;
+	/* Column flex + a growing <main> pins the footer to the bottom on short pages. */
+	display: flex;
+	flex-direction: column;
+}
+/* Every page renders exactly one <main>, so it is the element that absorbs the slack. */
+body > main {
+	flex: 1 0 auto;
 }
 @keyframes fadeUp {
 	from {
@@ -1141,7 +1150,8 @@ textarea.field {
 	);
 }
 /* Cards have no padding of their own, so inset the controls off the image edge. */
-.card > .admin-item-controls {
+.card > .admin-item-controls,
+.gallery-item > .admin-item-controls {
 	top: 10px;
 	right: 10px;
 }
